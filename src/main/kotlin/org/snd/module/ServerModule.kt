@@ -70,7 +70,7 @@ class ServerModule(
 
     init {
         try {
-            server.start(config.port)
+            server.start(config.host, config.port)
         } catch (e: Exception) {
             if (jetty.isStarted || jetty.isStarting)
                 jetty.stop()

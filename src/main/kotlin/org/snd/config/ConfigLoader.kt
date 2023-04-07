@@ -54,6 +54,7 @@ class ConfigLoader {
         val kavitaApiKey = System.getenv("KOMF_KAVITA_API_KEY")?.ifBlank { null } ?: kavitaConfig.apiKey
 
         val serverConfig = config.server
+        val serverHost = System.getenv("KOMF_SERVER_HOST")?.ifBlank { null } ?: serverConfig.host
         val serverPort = System.getenv("KOMF_SERVER_PORT")?.toIntOrNull() ?: serverConfig.port
         val logLevel = System.getenv("KOMF_LOG_LEVEL")?.ifBlank { null } ?: config.logLevel
 
@@ -74,7 +75,10 @@ class ConfigLoader {
             discord = config.discord.copy(
                 templatesDirectory = discordTemplatesDirectory
             ),
-            server = serverConfig.copy(port = serverPort),
+            server = serverConfig.copy(
+                host = serverHost,
+                port = serverPort
+            ),
             logLevel = logLevel
         )
     }

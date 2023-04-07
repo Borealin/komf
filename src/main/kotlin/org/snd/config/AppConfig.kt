@@ -138,6 +138,7 @@ data class CalibreConfig(
 
 @Serializable
 data class ServerConfig(
+    val host: String = "localhost",
     val port: Int = 8085
 )
 

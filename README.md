@@ -191,6 +191,7 @@ metadataProviders:
       enabled: false
       
 server:
+  host: localhost # or env:KOMF_SERVER_HOST
   port: 8085 # or env:KOMF_SERVER_PORT
 
 logLevel: INFO # or env:KOMF_LOG_LEVEL
