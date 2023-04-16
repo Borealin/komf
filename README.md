@@ -142,7 +142,8 @@ kavita:
         languageValue: # set default language for series. Must use BCP 47 format e.g. "en"
 
 discord:
-  webhooks: ['insert webhooks links seperated by (,)'] # list of discord webhook urls. Will call these webhooks after series or books were added
+  # List of discord webhook urls. Will call these webhooks after series or books were added. 
+  webhooks: # config example: webhooks: ["https://discord.com/api/webhooks/9..."] 
   descriptionTemplate: "discordWebhook.vm" # description template filename
   seriesCover: false # include series cover in message. Requires imgurClientId
   templatesDirectory: "./" # path to a directory with templates
@@ -189,7 +190,10 @@ metadataProviders:
     mangaDex:
       priority: 90
       enabled: false
-      
+    bangumi: # Chinese metadata provider. https://bgm.tv/
+      priority: 100
+      enabled: false
+
 server:
   host: localhost # or env:KOMF_SERVER_HOST
   port: 8085 # or env:KOMF_SERVER_PORT
